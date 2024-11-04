@@ -1,2 +1,4 @@
-package com.example.asgmandrid;public class HabitsAdapter {
+package com.example.asgmandrid;
+
+public class HabitsAdapter {
 }
