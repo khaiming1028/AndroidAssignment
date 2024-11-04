@@ -80,6 +80,17 @@ public class dbConnect extends SQLiteOpenHelper {
         return result;
     }
 
+    Cursor readAllData(){
+        String query = "SELECT * FROM " + HABITS_TABLE;
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = null;
+        if(db !=null){
+            cursor = db.rawQuery(query, null);
+        }
+        return cursor;
+    }
+
     // Method to check user credentials
     public boolean checkUserCredentials(String username, String password) {
         SQLiteDatabase db = this.getReadableDatabase();
