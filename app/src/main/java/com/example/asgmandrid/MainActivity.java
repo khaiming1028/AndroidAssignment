@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
                     // Check if the user exists in the database
                     if (checkUserCredentials(strUsername, strPassword)) {
                         // Login successful, navigate to main daily habit tracker
-                        Intent i = new Intent(MainActivity.this, CreateHabitActivity.class);
+                        Intent i = new Intent(MainActivity.this, main_daily_habit_tracker.class);
                         startActivity(i);
                         finish(); // Optional: finish the current activity
                     } else {
