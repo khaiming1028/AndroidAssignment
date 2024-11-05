@@ -5,9 +5,11 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.widget.Toast;
 
 public class dbConnect extends SQLiteOpenHelper {
 
+     Context context;
     // Database info
     private static String dbName = "Android";
     private static int dbVersion = 2;
@@ -27,7 +29,8 @@ public class dbConnect extends SQLiteOpenHelper {
     private static final String STARTING_TIME = "starting_time";
     private static final String ENDING_TIME = "ending_time";
 
-    public dbConnect(Context context) {
+    dbConnect(Context context) {
+
         super(context, dbName, null, dbVersion);
     }
 
@@ -90,6 +93,24 @@ public class dbConnect extends SQLiteOpenHelper {
         }
         return cursor;
     }
+
+    void UpdateData(String habit_id, String title, String description, String startingTime, String endingTime){
+        SQLiteDatabase db = this.getWritableDatabase();  // Use getWritableDatabase()
+        ContentValues cv = new ContentValues();
+        cv.put(HABIT_TITLE, title);
+        cv.put(HABIT_DESCRIPTION, description);
+        cv.put(STARTING_TIME, startingTime);
+        cv.put(ENDING_TIME, endingTime);
+
+        // Use HABIT_ID instead of "_id" if habit_id is your primary key column
+        long result = db.update(HABITS_TABLE, cv, HABIT_ID + "=?", new String[]{habit_id});
+        if(result == -1){
+            Toast.makeText(context, "Failed to Update", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(context, "Update Successful", Toast.LENGTH_SHORT).show();
+        }
+    }
+
 
     // Method to check user credentials
     public boolean checkUserCredentials(String username, String password) {
