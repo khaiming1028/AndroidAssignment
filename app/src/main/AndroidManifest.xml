@@ -13,6 +13,9 @@
         android:theme="@style/Theme.AsgmAndrid"
         tools:targetApi="31">
         <activity
+            android:name=".Update"
+            android:exported="false" />
+        <activity
             android:name=".CreateHabitActivity"
             android:exported="false" />
         <activity

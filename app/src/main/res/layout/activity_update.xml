@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- Habit Title -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Habit Title"
+        android:textSize="16sp" />
+
+    <EditText
+        android:id="@+id/etHabitTitle_edit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter habit title" />
+
+    <!-- Habit Description -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Habit Description"
+        android:textSize="16sp"
+        android:layout_marginTop="8dp" />
+
+    <EditText
+        android:id="@+id/etHabitDescription_edit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter habit description" />
+
+    <!-- Starting Time -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Starting Time"
+        android:textSize="16sp"
+        android:layout_marginTop="8dp" />
+
+    <EditText
+        android:id="@+id/etStartingTime_edit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Select starting time"
+        android:focusable="false"
+        android:clickable="true" />
+
+    <!-- Ending Time -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ending Time"
+        android:textSize="16sp"
+        android:layout_marginTop="8dp" />
+
+    <EditText
+        android:id="@+id/etEndingTime_edit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Select ending time"
+        android:focusable="false"
+        android:clickable="true" />
+
+    <!-- Save Button -->
+    <Button
+        android:id="@+id/btnUpdateHabit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Update Habit"
+        android:layout_marginTop="16dp" />
+
+</LinearLayout>
