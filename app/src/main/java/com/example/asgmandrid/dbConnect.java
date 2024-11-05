@@ -111,6 +111,17 @@ public class dbConnect extends SQLiteOpenHelper {
         }
     }
 
+    void deleteOneRow(String habit_id){
+        SQLiteDatabase db = this.getWritableDatabase();
+        long result = db.delete(HABITS_TABLE, HABIT_ID+ "=?",new String[]{habit_id});
+        if (result== -1){
+            Toast.makeText(context, "Failed to Delete", Toast.LENGTH_SHORT).show();
+        }else{
+            Toast.makeText(context, "Delete Successfully", Toast.LENGTH_SHORT).show();
+
+        }
+    }
+
 
     // Method to check user credentials
     public boolean checkUserCredentials(String username, String password) {
