@@ -3,6 +3,9 @@ package com.example.asgmandrid;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Context;
+
+import android.annotation.SuppressLint;
+
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -27,15 +30,19 @@ import java.util.Locale;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 public class main_daily_habit_tracker extends AppCompatActivity {
 
     RecyclerView recyclerView;
-    Button btnaddactivity;
+    FloatingActionButton btnaddactivity;
+    Button buttonlogout;
 
     dbConnect db;
     ArrayList<String>habit_id,title, description, starting_time, ending_time;
     HabitsAdapter HabitsAdapter;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,6 +50,7 @@ public class main_daily_habit_tracker extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.recycleView);
         btnaddactivity = findViewById(R.id.btnaddactivity);
+        buttonlogout = findViewById(R.id.buttonlogout);
 
         btnaddactivity.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,6 +59,15 @@ public class main_daily_habit_tracker extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
+        buttonlogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(main_daily_habit_tracker.this, MainActivity.class);
+                startActivity(i);
+            }
+        });
+
 
         db = new dbConnect(main_daily_habit_tracker.this);
         habit_id = new ArrayList<>();

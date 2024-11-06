@@ -16,7 +16,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="12dp"
-            android:background="@drawable/custom_edit">
+            android:background="@drawable/rectangleoutline">
 
             <TextView
                 android:id="@+id/activity_habit_id"
