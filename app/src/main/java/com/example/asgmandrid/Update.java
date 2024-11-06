@@ -1,6 +1,7 @@
 package com.example.asgmandrid;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -16,7 +17,7 @@ import androidx.core.view.WindowInsetsCompat;
 public class Update extends AppCompatActivity {
 
     EditText etHabitTitle_edit, etHabitDescription_edit, etStartingTime_edit, etEndingTime_edit;
-    Button btnUpdateHabit;
+    Button btnUpdateHabit, uhbtnback;
     String habit_id, title, description, startingTime, endingTime;
     @SuppressLint("MissingInflatedId")
     @Override
@@ -29,6 +30,7 @@ public class Update extends AppCompatActivity {
         etStartingTime_edit = findViewById(R.id. etStartingTime_edit);
         etEndingTime_edit = findViewById(R.id. etEndingTime_edit);
         btnUpdateHabit = findViewById(R.id. btnUpdateHabit);
+        uhbtnback = findViewById(R.id.uhbtnback);
         btnUpdateHabit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -41,6 +43,14 @@ public class Update extends AppCompatActivity {
                 //then we call the update method
                 dbConnect db = new dbConnect(Update.this);
                 db.UpdateData(habit_id,title,description,startingTime,endingTime);
+            }
+        });
+
+        uhbtnback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Update.this, main_daily_habit_tracker.class);
+                startActivity(i);
             }
         });
         //call this first

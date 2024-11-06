@@ -1,5 +1,6 @@
 package com.example.asgmandrid;
 
+import android.annotation.SuppressLint;
 import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,9 +17,10 @@ import java.util.Calendar;
 public class CreateHabitActivity extends AppCompatActivity {
 
     EditText etHabitTitle, etHabitDescription, etStartingTime, etEndingTime;
-    Button btnSaveHabit;
+    Button btnSaveHabit, chbtnback;
     dbConnect db;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,6 +31,7 @@ public class CreateHabitActivity extends AppCompatActivity {
         etStartingTime = findViewById(R.id.etStartingTime);
         etEndingTime = findViewById(R.id.etEndingTime);
         btnSaveHabit = findViewById(R.id.btnSaveHabit);
+        chbtnback = findViewById(R.id.chbtnback);
 
         db = new dbConnect(this); // Initialize database helper
 
@@ -50,6 +53,14 @@ public class CreateHabitActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 saveHabit();
+                Intent i = new Intent(CreateHabitActivity.this, main_daily_habit_tracker.class);
+                startActivity(i);
+            }
+        });
+
+        chbtnback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
                 Intent i = new Intent(CreateHabitActivity.this, main_daily_habit_tracker.class);
                 startActivity(i);
             }
