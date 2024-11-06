@@ -83,7 +83,7 @@
                 android:drawableLeft="@drawable/time"
                 android:padding="10dp"
                 android:textColor="@color/black"
-                android:hint="Select starting time"
+                android:hint="Select ending time"
                 android:focusable="false"
                 android:clickable="true"
                 android:textColorHighlight="@color/cardview_dark_background"
