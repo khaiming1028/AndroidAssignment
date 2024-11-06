@@ -23,7 +23,6 @@ public class main_daily_habit_tracker extends AppCompatActivity {
 
     RecyclerView recyclerView;
     Button btnaddactivity;
-    ImageButton settings;
 
     dbConnect db;
     ArrayList<String>habit_id,title, description, starting_time, ending_time;
@@ -36,7 +35,6 @@ public class main_daily_habit_tracker extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.recycleView);
         btnaddactivity = findViewById(R.id.btnaddactivity);
-        settings = findViewById(R.id.settings);
 
         btnaddactivity.setOnClickListener(new View.OnClickListener() {
             @Override
