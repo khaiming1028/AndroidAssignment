@@ -66,10 +66,11 @@ public class MainActivity extends AppCompatActivity {
         btnforgotpassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Implement forgot password functionality here
-                Toast.makeText(MainActivity.this, "Forgot password functionality not implemented yet", Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(MainActivity.this, ForgotPassword.class);
+                startActivity(i);
             }
         });
+
     }
 
     // Method to check user credentials in the database
